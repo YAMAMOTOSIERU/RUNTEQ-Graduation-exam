@@ -111,3 +111,7 @@ https://www.figma.com/file/U99iU1mOWdFnhDKxtWwDMk/Untitled?type=design&node-id=0
 
 - [×] 記事投稿機能（画像投稿含む）
 - [×] コメント閲覧機能（未ログインでも閲覧可能）
+
+#### ER 図
+
+https://drive.google.com/file/d/10FKOPvrU_Vn9EoW85koRDLq35KLeWeqb/view?usp=sharing
