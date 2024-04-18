@@ -54,6 +54,7 @@
 ・コメント
 
 MVPリリース後
+・タグ機能
 ・マルチ検索
 ・チャット機能
 ```
@@ -93,3 +94,7 @@ https://www.figma.com/file/U99iU1mOWdFnhDKxtWwDMk/Untitled?type=design&mode=desi
 
 - [×] 記事投稿機能（画像投稿含む）
 - [×] コメント閲覧機能（未ログインでも閲覧可能）
+
+#### ER 図
+
+https://app.diagrams.net/?src=about#G10FKOPvrU_Vn9EoW85koRDLq35KLeWeqb#%7B%22pageId%22%3A%22R2lEEEUBdFMjLlhIrx00%22%7D
