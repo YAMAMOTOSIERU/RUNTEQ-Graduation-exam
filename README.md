@@ -73,10 +73,10 @@ MVPリリース後
 ## 使用する予定の技術スタック
 
 ```
-・Ruby '3.1.4'
-・Rails '6.1.4'
+・Ruby '3.3.0'
+・Rails '7.1'
 ・RSpec
 ・js
-・Bootstrap '1.4.4'
+・Bootstrap '5.3'
 
 ```
