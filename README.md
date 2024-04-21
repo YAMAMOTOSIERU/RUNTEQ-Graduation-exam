@@ -63,8 +63,8 @@ MVPリリース後
 ・線グラフ
 ```
 
-
 ## 機能の実装方法予定
+
 ```
 ・チャット機能は WebSocket を使用する予定です。
 ・線グラフ機能は Chartkick を使用する予定です。
@@ -83,7 +83,7 @@ MVPリリース後
 
 ### 画面遷移図
 
-https://www.figma.com/file/U99iU1mOWdFnhDKxtWwDMk/Untitled?type=design&node-id=0%3A1&mode=design&t=hSfkGzVMdUEIU8z5-1
+https://www.figma.com/file/DZ8PsbWJKTY3ZLtL68WNHS/Untitled?type=design&node-id=0%3A1&mode=design&t=7u72qrbOX51ZFmnC-1
 
 ### README に記載した機能
 
