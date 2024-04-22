@@ -83,7 +83,7 @@ MVPリリース後
 
 ### 画面遷移図
 
-https://www.figma.com/file/DZ8PsbWJKTY3ZLtL68WNHS/Untitled?type=design&node-id=0%3A1&mode=design&t=7u72qrbOX51ZFmnC-1
+https://www.figma.com/file/DZ8PsbWJKTY3ZLtL68WNHS/Untitled?type=design&node-id=0%3A1&mode=design&t=g37kFNteI4myw0JR-1
 
 ### README に記載した機能
 
