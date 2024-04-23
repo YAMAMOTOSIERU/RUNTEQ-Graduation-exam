@@ -24,7 +24,7 @@
 
 ```
 ・掲示板機能を使用してその日なんの筋トレをしかのか。
-・チャット機能を使用して今現在頑張っている人を見て自分のモチベーションを上げる。
+・チャット機能で知り合った人たちと交流をしお互いにモチベーションを上げる。
 ・線グラフで自分の体重を確認する。
 ```
 
@@ -40,6 +40,7 @@
 ```
 　Xやインスタグラムなどに似ていますがいい意味で筋トレ専門でのサービスなので
 ・プライバシーを守り、Xやインスタなど知り合いに体重を公開しなくて良い。
+(掲示板には今日行ったメニューなどを表示させ、過去の自分などの画面遷移を作成してそこに体重と線グラフを表示させる)
 ・線グラフで自分の体重の変化が見ることができる。
 ・自分の投稿をしていると日記ような扱いで見返すことができる。
 ・同じ目標を目指している人同士が繋がり、モチベーションも上げやすい。
@@ -72,17 +73,17 @@ MVPリリース後
 ## 使用する予定の技術スタック
 
 ```
-・Ruby
-・Rails
+・Ruby '3.3.0'
+・Rails '7.1'
 ・RSpec
 ・js
-・Bootstrap
+・Bootstrap '5.3'
 
 ```
 
 ### 画面遷移図
 
-https://www.figma.com/file/U99iU1mOWdFnhDKxtWwDMk/Untitled?type=design&node-id=0%3A1&mode=design&t=hSfkGzVMdUEIU8z5-1
+https://www.figma.com/file/DZ8PsbWJKTY3ZLtL68WNHS/Untitled?type=design&node-id=0%3A1&mode=design&t=g37kFNteI4myw0JR-1
 
 ### README に記載した機能
 
