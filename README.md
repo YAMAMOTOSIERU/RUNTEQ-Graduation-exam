@@ -74,7 +74,7 @@ MVPリリース後
 
 ```
 ・Ruby '3.3.0'
-・Rails '7.1'
+・Rails '7.1.0'
 ・RSpec
 ・js
 ・Bootstrap '5.3'
