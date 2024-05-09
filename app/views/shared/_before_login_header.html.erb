@@ -1,0 +1,22 @@
+<header>
+  <nav class="navbar navbar-expand-lg navigation navbar-light" style="height: 100px; background-color: #FFA500;">
+
+    <%= link_to root_path, class: "navbar-brand fs-3 text-white", style: "padding-left: 20px;" do %>
+      <div>掲示板一覧</div>
+    <% end %>
+    <button class='navbar-toggler' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation'>
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ms-auto main-nav align-items-center">
+        <li class="nav-item">
+          <%= link_to 'ユーザー登録', new_user_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'ログイン', login_path, class: "nav-link" %>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>
