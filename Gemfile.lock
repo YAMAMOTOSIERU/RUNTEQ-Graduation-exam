@@ -349,7 +349,7 @@ DEPENDENCIES
   faker
   jbuilder
   jsbundling-rails
-  pg (~> 1.4)
+  pg
   pry-byebug
   puma (>= 5.0)
   rails (~> 7.1.0)
