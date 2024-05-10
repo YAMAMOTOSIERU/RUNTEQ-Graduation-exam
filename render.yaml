@@ -1,6 +1,6 @@
 databases:
   - name: RUNTEQ-Graduation-exam
-    databaseName: my_app_production
+    databaseName: RUNTEQ-Graduation-exam_db
     user: RUNTEQ-Graduation-exam
     region: singapore
 
@@ -19,3 +19,5 @@ services:
           property: connectionString
       - key: RAILS_MASTER_KEY
         sync: false
+    ports:
+      - number: 3000
