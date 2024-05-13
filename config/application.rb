@@ -29,5 +29,6 @@ module App
       g.helper false
       g.test_framework nil
     end
+    config.hosts << "runteq-graduation-exam.onrender.com"
   end
 end

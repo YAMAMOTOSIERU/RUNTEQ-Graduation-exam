@@ -24,7 +24,7 @@ default: &default
 
 development:
   <<: *default
-  database: app_development
+  database: RUNTEQ-Graduation-exam-DB
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
