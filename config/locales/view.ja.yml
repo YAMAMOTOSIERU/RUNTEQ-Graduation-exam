@@ -1,7 +1,4 @@
 ja:
-  defaults:
-    flash_message:
-      require_login: ログインしてください
   helpers:
     submit:
       create: 登録
@@ -10,12 +7,17 @@ ja:
     label:
       email: メールアドレス
       password: パスワード
+  defaults:
+    flash_message:
+      created: "%{item}を作成しました"
+      not_created: "%{item}を作成できませんでした"
+      require_login: ログインしてください
   header:
     login: ログイン
     logout: ログアウト
-    board: 掲示板
-    board_index: 掲示板一覧
-    create_board: 掲示板作成
+    post: 掲示板
+    post_index: 掲示板一覧
+    create_post: 掲示板作成
     bookmark_index: ブックマーク一覧
     profile: プロフィール
   user_sessions:
@@ -36,3 +38,9 @@ ja:
     create:
       success: ページ登録が完了しました
       failure: ユーザー登録に失敗しました
+  posts:
+    new:
+      title: 掲示板作成
+  time:
+    formats:
+      short: "%Y-%m-%d %H:%M"
