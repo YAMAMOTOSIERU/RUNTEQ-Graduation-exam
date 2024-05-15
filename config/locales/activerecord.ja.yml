@@ -12,4 +12,5 @@ ja:
       post:
         title: タイトル
         body: 本文
+        weight: 体重
         number: 今日の体重
