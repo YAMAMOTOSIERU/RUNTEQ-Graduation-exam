@@ -1,7 +1,7 @@
 <div class="container pt-5">
   <div class="row mb-3">
     <div class="col-lg-8 offset-lg-2">
-      <h1><%= t('.title') %></h1>
+      <h1 class="text-center"><%= t('.title') %></h1>
       <article class="card">
         <div class="card-body">
           <div class="row">
@@ -26,12 +26,12 @@
         </article>
       </div>
     </div>
-    <!-- render 'comments/form', comment: @comment, post: @post -->
+    <%= render 'comments/form', comment: @comment, post: @post %>
     <div class="row">
       <div class="col-lg-8 offset-lg-2">
         <table class="table">
           <tbody id="table-comment">
-            <!-- render @comments -->
+            <%= render @comments %>
           </tbody>
         </table>
       </div>
