@@ -44,6 +44,8 @@ ja:
       title: 日記作成
     show:
       title: 日記詳細
+    index:
+      title: 日記一覧
   time:
     formats:
       short: "%Y-%m-%d %H:%M"
