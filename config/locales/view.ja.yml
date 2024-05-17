@@ -8,10 +8,15 @@ ja:
       email: メールアドレス
       password: パスワード
   defaults:
+    create: 作成
     post: 投稿
+    delete_confirm: 削除しますか？
     flash_message:
       created: "%{item}を作成しました"
       not_created: "%{item}を作成できませんでした"
+      updated: "%{item}を更新しました"
+      not_updated: "%{item}を更新できませんでした"
+      deleted: "%{item}を削除しました"
       require_login: ログインしてください
   header:
     login: ログイン
@@ -46,6 +51,8 @@ ja:
       title: 日記詳細
     index:
       title: 日記一覧
+    edit:
+      title: 日記編集
   time:
     formats:
       short: "%Y-%m-%d %H:%M"
