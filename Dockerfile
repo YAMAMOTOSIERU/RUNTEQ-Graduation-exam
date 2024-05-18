@@ -5,11 +5,12 @@ ARG RUBY_VERSION
 ARG NODE_VERSION
 ENV LANG C.UTF-8
 ENV TZ Asia/Tokyo
-RUN curl -sL https://deb.nodesource.com/setup_${NODE_VERSION}.x | bash - \
-&& wget --quiet -O - /tmp/pubkey.gpg https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
+# Node.jsの新しいインストール方法を使用
+RUN curl -fsSL https://deb.nodesource.com/setup_${NODE_VERSION}.x | bash - \
+&& curl -fsSL https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
 && echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list \
 && apt-get update -qq \
-&& apt-get install -y build-essential nodejs yarn
+&& apt-get install -y build-essential nodejs yarn libpq-dev
 RUN mkdir /app
 WORKDIR /app
 RUN gem install bundler
