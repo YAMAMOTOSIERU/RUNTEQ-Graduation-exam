@@ -5,6 +5,7 @@ ARG RUBY_VERSION
 ARG NODE_VERSION
 ENV LANG C.UTF-8
 ENV TZ Asia/Tokyo
+ENV RAILS_ENV=production
 # Node.jsの新しいインストール方法を使用
 RUN curl -fsSL https://deb.nodesource.com/setup_${NODE_VERSION}.x | bash - \
 && curl -fsSL https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
