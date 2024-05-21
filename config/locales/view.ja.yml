@@ -53,6 +53,14 @@ ja:
       title: 日記一覧
     edit:
       title: 日記編集
+    bookmarks:
+      title: いいね一覧
+      no_result: いいねした日記がありません。
+  bookmarks:
+    create:
+      success: ブックマークしました
+    destroy:
+      success: ブックマークを外しました
   time:
     formats:
       short: "%Y-%m-%d %H:%M"
