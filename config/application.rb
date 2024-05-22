@@ -30,5 +30,6 @@ module App
       g.test_framework nil
     end
     config.hosts << "runteq-graduation-exam.onrender.com"
+    config.hosts << "example-app.herokuapp.com"
   end
 end
