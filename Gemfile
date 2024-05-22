@@ -46,10 +46,6 @@ gem "bootsnap", require: false
 
 gem "sorcery"
 
-gem "draper"
-
-gem 'rails-i18n', '~> 7.0.0'
-
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri windows ]
@@ -61,6 +57,7 @@ group :development, :test do
   gem "rubocop-checkstyle_formatter"
   gem "rspec-rails"
   gem "rspec_junit_formatter"
+  gem "sqlite3"
 end
 
 group :development do
@@ -82,5 +79,5 @@ group :test do
 end
 
 group :production do
-  gem "pg", "~> 1.4"
+  gem 'pg'
 end
