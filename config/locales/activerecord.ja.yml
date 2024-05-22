@@ -1,0 +1,19 @@
+ja:
+  activerecord:
+    models:
+      user: ユーザー
+      post: 日記
+      comment: コメント
+    attributes:
+      user:
+        email: メールアドレス
+        name: 名前
+        password: パスワード
+        password_confirmation: パスワード確認
+      post:
+        title: タイトル
+        body: 本文
+        weight: 体重
+        number: 今日の体重
+      comment:
+        body: コメント

@@ -29,6 +29,9 @@ module App
       g.helper false
       g.test_framework nil
     end
+    config.i18n.default_locale = :ja
+    config.time_zone = 'Tokyo'
+
     config.hosts << "runteq-graduation-exam.onrender.com"
     config.hosts << "rails-create-ymr-7e3d766e0d9c.herokuapp.com"
   end
