@@ -30,6 +30,12 @@ gem "jbuilder"
 
 gem "draper"
 
+gem "rails-i18n"
+
+gem 'kaminari'
+
+gem 'bootstrap5-kaminari-views'
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
 
