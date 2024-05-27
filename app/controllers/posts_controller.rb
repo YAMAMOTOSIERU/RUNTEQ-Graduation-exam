@@ -10,6 +10,7 @@ class PostsController < ApplicationController
   def create
     @post = current_user.posts.build(post_params)
     if @post.save
+      @post.save_tags(params[:post][:tag])
       redirect_to posts_path, success: t('defaults.flash_message.created', item: Post.model_name.human)
     else
       flash.now[:danger] = t('defaults.flash_message.not_created', item: Post.model_name.human)
@@ -30,6 +31,7 @@ class PostsController < ApplicationController
   def update
     @post = current_user.posts.find(params[:id])
     if @post.update(post_params)
+      @post.save_tags(params[:post][:tag])
       redirect_to post_path(@post), success: t('defaults.flash_message.updated', item: Post.model_name.human)
     else
       flash.now[:danger] = t('defaults.flash_message.not_created', item: Post.model_name.human)

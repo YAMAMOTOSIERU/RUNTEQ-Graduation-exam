@@ -9,8 +9,13 @@
       <%= f.text_area :body, class: "form-control", rows: "10" %>
     </div>
     <div class="mb-4">
+      <%= f.label :tag %>
+      <%= f.text_field :tag, class: 'form-control', placeholder: ',で区切って入力してください', value: @post.tags.pluck(:name).join(',') %>
+    </div>
+    <div class="mb-4">
       <%= f.label :number, class: "form-label" %>
       <%= f.number_field :weight, class: "form-control", step: 0.1 %>
     </div>
+
     <%= f.submit nil, class: "btn btn-primary d-block mx-auto", style: "width: 40%;" %>
 <% end %>

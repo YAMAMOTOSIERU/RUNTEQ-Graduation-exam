@@ -14,6 +14,7 @@ ja:
         title: タイトル
         body: 本文
         weight: 体重
+        tag: タグ
         number: 今日の体重
       comment:
         body: コメント
