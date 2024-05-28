@@ -192,6 +192,7 @@ GEM
     net-smtp (0.5.0)
       net-protocol
     nio4r (2.7.1)
+    nkf (0.2.0)
     nokogiri (1.16.4-aarch64-linux)
       racc (~> 1.4)
     nokogiri (1.16.4-arm64-darwin)
@@ -391,6 +392,7 @@ DEPENDENCIES
   jbuilder
   jsbundling-rails
   kaminari
+  nkf
   pg
   pry-byebug
   puma (>= 5.0)

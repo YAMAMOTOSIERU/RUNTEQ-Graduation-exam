@@ -1,6 +1,9 @@
 class PostsController < ApplicationController
+  before_action :set_search, only: [:index, :new, :create, :show, :edit, :update, :destroy, :bookmarks]
+  skip_before_action :require_login, only: [:index]
+
   def index
-    @posts = Post.includes(:user).order(created_at: :desc).page(params[:page])
+    @posts = @q.result(distinct: true).includes(:user).order(created_at: :desc).page(params[:page])
   end
 
   def new
@@ -50,6 +53,10 @@ class PostsController < ApplicationController
   end
 
   private
+
+  def set_search
+    @q = Post.ransack(params[:q])
+  end
 
   def post_params
     params.require(:post).permit(:title, :body, :weight)

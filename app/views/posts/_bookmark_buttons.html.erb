@@ -1,7 +1,7 @@
 <div class='ms-auto'>
-  <% if current_user.bookmark?(post) %>
+  <% if current_user && current_user.bookmark?(post) %>
     <%= render 'posts/unbookmark', post: post %>
-  <% else %>
+  <% elsif current_user %>
     <%= render 'posts/bookmark', post: post %>
   <% end %>
 </div>

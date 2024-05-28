@@ -18,7 +18,7 @@
           <% end %>
         </div>
         <div class="ms-auto">
-          <% if current_user.own?(post) %>
+          <% if current_user && current_user.own?(post) %>
             <div class='ms-auto'>
               <%= link_to '編集', edit_post_path(post), class: 'btn btn-success btn-sm', id: "button-edit-#{post.id}" %>
               <%= link_to '削除', post_path(post), class: 'btn btn-danger btn-sm', id: "button-delete-#{post.id}", data: { turbo_method: :delete, turbo_confirm: t('defaults.delete_confirm') } %>

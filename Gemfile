@@ -38,6 +38,8 @@ gem 'bootstrap5-kaminari-views'
 
 gem 'ransack'
 
+gem 'nkf'
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
 

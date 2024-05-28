@@ -1,28 +1,35 @@
 <header>
-<nav class="navbar navbar-expand-lg navigation navbar-light" style="height: 100px; background-color: #FFA500;">
-  <%= link_to '掲示板一覧', posts_path, class: 'navbar-brand fs-3 text-white', data: { turbo_frame: '_top' }, style: 'padding-left: 20px;' %>
-    <div class='collapse navbar-collapse' id='navbarSupportedContent'>
-      <ul class='navbar-nav ms-auto main-nav align-items-center'>
-        <li class='nav-item'>
-          <%= link_to '日記作成', new_post_path, class: 'dropdown-item' %>
-        </li>
+  <nav class="navbar navbar-expand-lg navigation navbar-light" style="height: 100px; background-color: #FFA500;">
+    <%= link_to '掲示板一覧', posts_path, class: 'navbar-brand fs-3 text-white', data: { turbo_frame: '_top' }, style: 'padding-left: 20px;' %>
+    <form class="d-flex">
+      <%= search_form_for @q, url: posts_path, method: :get do |f| %>
+        <%= f.search_field :title_or_body_cont, id: "search_field_of_post", class: "form-control me-2", type: "search", placeholder: "タイトル" %>
+        <%= f.search_field :user_name_cont, id: "search_field_of_user", class: "form-control me-2", type: "search", placeholder: "ユーザー" %>
+        <%= f.submit "Search", class: "btn btn-outline-success", type: "submit" %>
+      <% end %>
+    </form>
+      <div class='collapse navbar-collapse' id='navbarSupportedContent'>
+        <ul class='navbar-nav ms-auto main-nav align-items-center'>
+          <li class='nav-item'>
+            <%= link_to '日記作成', new_post_path, class: 'nav-link' %>
+          </li>
 
-        <li class='nav-item'>
-          <%= link_to 'ブックマーク一覧', bookmarks_posts_path, class: 'nav-link' %>
-        </li>
+          <li class='nav-item'>
+            <%= link_to 'いいね一覧', bookmarks_posts_path, class: 'nav-link' %>
+          </li>
 
-        <li class='nav-item'>
-          <%= link_to '#', class: 'nav-link', data: { bs_toggle: 'dropdown' }, aria: { haspopup: 'true', expanded: 'false' }, id: 'header-profile' do %>
-            <div>プロフィール</div>
-          <% end %>
-          <div class='dropdown-menu dropdown-menu-end'>
-            <div class='dropdown-item'><%= current_user.decorate.full_name %></div>
-            <div class='dropdown-divider'></div>
-            <%= link_to 'プロフィール', '#', class: 'dropdown-item' %>
-            <%= link_to 'ログアウト', logout_path, class: 'dropdown-item', data: { turbo_method: :delete } %>
-          </div>
-        </li>
-      </ul>
-    </div>
+          <li class='nav-item'>
+            <%= link_to '#', class: 'nav-link', data: { bs_toggle: 'dropdown' }, aria: { haspopup: 'true', expanded: 'false' }, id: 'header-profile' do %>
+              <div>プロフィール</div>
+            <% end %>
+            <div class='dropdown-menu dropdown-menu-end'>
+              <div class='dropdown-item'><%= current_user.decorate.full_name %></div>
+              <div class='dropdown-divider'></div>
+              <%= link_to 'プロフィール', '#', class: 'dropdown-item' %>
+              <%= link_to 'ログアウト', logout_path, class: 'dropdown-item', data: { turbo_method: :delete } %>
+            </div>
+          </li>
+        </ul>
+      </div>
   </nav>
 </header>

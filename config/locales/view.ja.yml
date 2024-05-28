@@ -24,7 +24,7 @@ ja:
     post: 掲示板
     post_index: 掲示板一覧
     create_post: 掲示板作成
-    bookmark_index: ブックマーク一覧
+    bookmark_index: いいね一覧
     profile: プロフィール
   user_sessions:
     new:
@@ -58,9 +58,9 @@ ja:
       no_result: いいねした日記がありません。
   bookmarks:
     create:
-      success: ブックマークしました
+      success: いいねしました
     destroy:
-      success: ブックマークを外しました
+      success: いいねを外しました
   time:
     formats:
       short: "%Y-%m-%d %H:%M"
