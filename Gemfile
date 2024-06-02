@@ -40,6 +40,12 @@ gem 'ransack'
 
 gem 'nkf'
 
+gem 'webpacker'
+
+gem 'chartkick'
+
+gem 'groupdate'
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
 
