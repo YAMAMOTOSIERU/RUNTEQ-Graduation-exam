@@ -64,3 +64,6 @@ ja:
   time:
     formats:
       short: "%Y-%m-%d %H:%M"
+  profiles:
+    show:
+      title: 日記一覧
