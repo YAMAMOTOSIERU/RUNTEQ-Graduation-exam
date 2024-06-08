@@ -1,0 +1,12 @@
+<% if @chat.persisted? %>
+  $('.message').append(
+    "<div class='chat-message'> \
+      <span class='chat-timestamp'><%= j @chat.created_at.strftime('%Y-%m-%d %H:%M') %></span> \
+      <p class='chat-text'><%= j @chat.message %></p> \
+    </div>"
+  );
+  $('.js-form')[0].reset();
+  $('.error-alert').empty();
+<% else %>
+  $('.error-alert').html("<%= j @chat.errors.full_messages.join(', ') %>");
+<% end %>

@@ -21,9 +21,9 @@ ja:
   header:
     login: ログイン
     logout: ログアウト
-    post: 掲示板
-    post_index: 掲示板一覧
-    create_post: 掲示板作成
+    post: 日記
+    post_index: 日記一覧
+    create_post: 日記作成
     bookmark_index: いいね一覧
     profile: プロフィール
   user_sessions:
@@ -56,14 +56,17 @@ ja:
     bookmarks:
       title: いいね一覧
       no_result: いいねした日記がありません。
+  profiles:
+    show:
+      title: プロフィール
   bookmarks:
     create:
       success: いいねしました
     destroy:
       success: いいねを外しました
+  chats:
+    show:
+      title: チャットルーム
   time:
     formats:
       short: "%Y-%m-%d %H:%M"
-  profiles:
-    show:
-      title: 日記一覧

@@ -1,0 +1,55 @@
+<% content_for(:title, t('.title')) %>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-6">
+            <h2>ChatRoom <%= @user.name %></h2>
+
+            <table class="message table">
+              <thead>
+                <tr>
+                  <th style="text-align: left; font-size: 20px;"><%= current_user.name %></th>
+                  <th style="text-align: right; font-size: 20px;"><%= @user.name %></th>
+                </tr>
+              </thead>
+              <% @chats.each do |chat| %>
+                <% if chat.user_id == current_user.id %>
+                <tbody>
+                  <tr>
+                    <th>
+                      <p style="text-align: left;">
+                      <%= chat.message %>
+                      <span class="chat-timestamp" style= "padding-left: 20px;"><%= chat.created_at.strftime("%Y-%m-%d %H:%M") %></span>
+                      </p>
+                    </th>
+                    <th></th>
+                  </tr>
+                <% else %>
+                  <tr>
+                    <th></th>
+                    <th>
+                      <p style="text-align: right;">
+                      <span class="chat-timestamp" style= "padding-right: 20px;"><%= chat.created_at.strftime("%Y-%m-%d %H:%M") %></span>
+                      <%= chat.message %>
+                      </p>
+                    </th>
+                  </tr>
+                </tbody>
+                <% end %>
+              <% end %>
+            </table>
+
+            <div class="form-group text-center">
+              <%= form_with model: @chat, class: "js-form" do |f| %>
+              <div class="input-group mb-3">
+                <%= f.text_field :message, class: "form-control chat-input", placeholder: "メッセージを入力してください" %>
+                <div class="input-group-append" style= "padding-left: 10px;">
+                  <%= f.submit "送信", class:"btn btn-sm btn-success chat-btn" %>
+                </div>
+              </div>
+              <%= f.hidden_field :room_id %>
+              <% end %>
+            </div>
+            <div class="error-alert"></div>
+        </div>
+    </div>
+</div>
