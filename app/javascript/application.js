@@ -1,1 +1,6 @@
-// Configure your import map in config/importmap.rb. Read more: https://github.com/rails/importmap-rails
+import { Application } from "stimulus";
+import "chartkick/chart.js";
+
+const application = Application.start();
+
+console.log("Hello from ESBuild!");
