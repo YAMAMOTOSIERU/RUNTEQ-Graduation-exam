@@ -11,7 +11,6 @@ Rails.application.routes.draw do
   resources :bookmarks, only: %i[create destroy]
   resource :profile, only: %i[show]
   resources :tags, only: [:show]
-  resources :chats, only: [:index]
   resources :rooms do
     resources :messages, only: [:create]
   end
