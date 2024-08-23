@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_05_24_022317) do
+ActiveRecord::Schema[7.1].define(version: 2024_08_23_044140) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -34,6 +34,16 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_24_022317) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
+  create_table "messages", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "room_id", null: false
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["room_id"], name: "index_messages_on_room_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
+  end
+
   create_table "posts", force: :cascade do |t|
     t.string "title", null: false
     t.text "body", null: false
@@ -42,6 +52,11 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_24_022317) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_posts_on_user_id"
+  end
+
+  create_table "rooms", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "tag_maps", force: :cascade do |t|
@@ -60,6 +75,15 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_24_022317) do
     t.index ["name"], name: "index_tags_on_name", unique: true
   end
 
+  create_table "user_rooms", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "room_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["room_id"], name: "index_user_rooms_on_room_id"
+    t.index ["user_id"], name: "index_user_rooms_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", null: false
     t.string "crypted_password"
@@ -74,7 +98,11 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_24_022317) do
   add_foreign_key "bookmarks", "users"
   add_foreign_key "comments", "posts"
   add_foreign_key "comments", "users"
+  add_foreign_key "messages", "rooms"
+  add_foreign_key "messages", "users"
   add_foreign_key "posts", "users"
   add_foreign_key "tag_maps", "posts"
   add_foreign_key "tag_maps", "tags"
+  add_foreign_key "user_rooms", "rooms"
+  add_foreign_key "user_rooms", "users"
 end

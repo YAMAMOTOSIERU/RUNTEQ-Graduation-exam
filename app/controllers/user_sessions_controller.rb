@@ -1,5 +1,4 @@
 class UserSessionsController < ApplicationController
-  before_action :set_search, only: [:new, :create]
   skip_before_action :require_login, only: %i[new create]
 
   def new; end
@@ -18,11 +17,5 @@ class UserSessionsController < ApplicationController
   def destroy
     logout
     redirect_to root_path, status: :see_other, danger: t('user_sessions.destroy.success')
-  end
-
-  private
-
-  def set_search
-    @q = Post.ransack(params[:q])
   end
 end

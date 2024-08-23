@@ -1,5 +1,4 @@
 class PostsController < ApplicationController
-  before_action :set_search, only: [:index, :new, :create, :show, :edit, :update, :destroy, :bookmarks]
   skip_before_action :require_login, only: [:index]
 
   def index
@@ -53,10 +52,6 @@ class PostsController < ApplicationController
   end
 
   private
-
-  def set_search
-    @q = Post.ransack(params[:q])
-  end
 
   def post_params
     params.require(:post).permit(:title, :body, :weight)

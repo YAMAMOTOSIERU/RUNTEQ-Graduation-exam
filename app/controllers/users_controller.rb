@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-    before_action :set_search, only: [:new, :create]
     skip_before_action :require_login, only: %i[new create]
 
     def new
@@ -17,10 +16,6 @@ class UsersController < ApplicationController
     end
 
     private
-
-    def set_search
-        @q = Post.ransack(params[:q])
-    end
 
     def user_params
         params.require(:user).permit(:name, :email, :password, :password_confirmation)

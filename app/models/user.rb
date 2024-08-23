@@ -11,6 +11,9 @@ class User < ApplicationRecord
     has_many :comments, dependent: :destroy
     has_many :bookmarks, dependent: :destroy
     has_many :bookmark_posts, through: :bookmarks, source: :post
+    has_many :user_rooms
+    has_many :rooms, through: :user_rooms
+    has_many :messages
 
     def own?(object)
         id == object&.user_id

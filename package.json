@@ -5,6 +5,7 @@
   "dependencies": {
     "@hotwired/stimulus": "^3.2.2",
     "@hotwired/turbo-rails": "^8.0.4",
+    "@rails/actioncable": "^7.2.0",
     "chart.js": "^4.4.3",
     "chartkick": "^5.0.1",
     "core-js": "^3.37.1",
@@ -14,9 +15,8 @@
     "stimulus": "^3.2.2"
   },
   "scripts": {
-    "build": "esbuild app/javascript/application.js --bundle --outdir=app/assets/builds",
-    "watch": "esbuild app/javascript/application.js --bundle --outdir=app/assets/builds --watch",
-    "start": "node esbuild.config.js",
+    "build": "node esbuild.config.mjs",
+    "watch": "node esbuild.config.mjs --watch",
     "build:css": "sass ./app/assets/stylesheets/application.sass.scss:./app/assets/builds/application.css --no-source-map --load-path=node_modules"
   },
   "devDependencies": {
@@ -31,7 +31,7 @@
     "@babel/preset-react": "^7.24.7",
     "babel-plugin-require-context-hook": "^1.0.0",
     "chokidar": "^3.6.0",
-    "esbuild": "^0.23.0",
+    "esbuild": "^0.23.1",
     "esbuild-plugin-babel": "^0.2.3"
   }
 }
