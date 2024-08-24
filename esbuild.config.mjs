@@ -2,13 +2,11 @@ import esbuild from "esbuild";
 import babel from "esbuild-plugin-babel";
 import process from "process";
 
-// コマンドライン引数に --watch が含まれているかチェック
 const isWatchMode = process.argv.includes("--watch");
 
-// Babelの設定
 const babelConfig = {
   filter: /\.(js|jsx|ts|tsx)$/,
-  babelOptions: {
+  config: {
     presets: [
       [
         "@babel/preset-env",
@@ -23,11 +21,14 @@ const babelConfig = {
     plugins: [
       "@babel/plugin-proposal-class-properties",
       "@babel/plugin-proposal-object-rest-spread",
+      "@babel/plugin-proposal-nullish-coalescing-operator",
+      "@babel/plugin-proposal-optional-chaining",
+      "babel-plugin-require-context-hook",
+      "@babel/plugin-transform-private-methods",
     ],
   },
 };
 
-// esbuildの設定
 const buildOptions = {
   entryPoints: ["app/javascript/application.js"],
   bundle: true,
