@@ -1,5 +1,6 @@
-class RoomsController < ApplicationController
+# frozen_string_literal: true
 
+class RoomsController < ApplicationController
   def chat_index
     @rooms = current_user.rooms
   end
@@ -10,7 +11,7 @@ class RoomsController < ApplicationController
     @message = Message.new
     @other_user = @room.users.where.not(id: current_user.id).first
   rescue ActiveRecord::RecordNotFound
-    flash[:alert] = "指定されたルームが見つかりません。"
+    flash[:alert] = '指定されたルームが見つかりません。'
     redirect_to chat_index_path
   end
 

@@ -61,3 +61,8 @@ jobs:
           heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
           heroku_app_name: "rails-create-ymr"
           heroku_email: "sieru0710@icloud.com"
+
+  continue-on-error: true
+  run: |
+    bundle exec rubcop
+    bundle exec erb-lint .

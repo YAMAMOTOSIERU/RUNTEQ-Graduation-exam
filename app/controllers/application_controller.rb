@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 class ApplicationController < ActionController::Base
-    before_action :require_login
-    before_action :set_action_cable_identifier
-    before_action :set_search
-    add_flash_types :success, :danger
+  before_action :require_login
+  before_action :set_action_cable_identifier
+  before_action :set_search
+  add_flash_types :success, :danger
 
   private
 

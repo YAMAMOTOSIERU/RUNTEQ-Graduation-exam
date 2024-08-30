@@ -1,8 +1,10 @@
-require_relative "boot"
+# frozen_string_literal: true
 
-require "rails/all"
-require "sprockets/railtie"
-require "action_cable/engine"
+require_relative 'boot'
+
+require 'rails/all'
+require 'sprockets/railtie'
+require 'action_cable/engine'
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -16,7 +18,7 @@ module App
     # Please, add to the `ignore` list any other `lib` subdirectories that do
     # not contain `.rb` files, or that should not be reloaded or eager loaded.
     # Common ones are `templates`, `generators`, or `middleware`, for example.
-    config.autoload_lib(ignore: %w(assets tasks))
+    config.autoload_lib(ignore: %w[assets tasks])
 
     # Configuration for the application, engines, and railties goes here.
     #
@@ -34,7 +36,7 @@ module App
     config.i18n.default_locale = :ja
     config.time_zone = 'Tokyo'
 
-    config.hosts << "runteq-graduation-exam.onrender.com"
-    config.hosts << "rails-create-ymr-7e3d766e0d9c.herokuapp.com"
+    config.hosts << 'runteq-graduation-exam.onrender.com'
+    config.hosts << 'rails-create-ymr-7e3d766e0d9c.herokuapp.com'
   end
 end

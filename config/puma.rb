@@ -1,33 +1,35 @@
+# frozen_string_literal: true
+
 # Puma configuration file for Docker setup
 
 # Puma can serve each request in a thread from an internal thread pool.
 # The `threads` method setting takes two numbers: a minimum and maximum.
 # Default is set to 5 threads for minimum and maximum.
-min_threads_count = ENV.fetch("RAILS_MIN_THREADS") { 5 }
-max_threads_count = ENV.fetch("RAILS_MAX_THREADS") { 5 }
+min_threads_count = ENV.fetch('RAILS_MIN_THREADS', 5)
+max_threads_count = ENV.fetch('RAILS_MAX_THREADS', 5)
 threads min_threads_count, max_threads_count
 
 # Specifies that the worker count should equal the number of processors in production.
-if ENV.fetch("RAILS_ENV") == "production"
-  worker_count = Integer(ENV.fetch("WEB_CONCURRENCY") { 2 })
+if ENV.fetch('RAILS_ENV') == 'production'
+  worker_count = Integer(ENV.fetch('WEB_CONCURRENCY', 2))
   workers worker_count
 end
 
 # Specifies the `worker_timeout` threshold that Puma will use to wait before
 # terminating a worker in development environments.
-worker_timeout 3600 if ENV.fetch("RAILS_ENV", "development") == "development"
+worker_timeout 3600 if ENV.fetch('RAILS_ENV', 'development') == 'development'
 
 # Specifies the `port` that Puma will listen on to receive requests; default is 3000.
-port ENV.fetch("PORT") { 3000 }
+port ENV.fetch('PORT', 3000)
 
 # Specifies the `environment` that Puma will run in.
-environment ENV.fetch("RAILS_ENV") { "development" }
+environment ENV.fetch('RAILS_ENV', 'development')
 
 # Specifies the `pidfile` that Puma will use.
-pidfile ENV.fetch("PIDFILE") { "tmp/pids/server.pid" }
+pidfile ENV.fetch('PIDFILE', 'tmp/pids/server.pid')
 
 # Allow puma to be restarted by `bin/rails restart` command.
 plugin :tmp_restart
 
 # Specifies the worker count.
-workers ENV.fetch("WEB_CONCURRENCY") { 4 } if ENV.fetch("RAILS_ENV") == "production"
+workers ENV.fetch('WEB_CONCURRENCY', 4) if ENV.fetch('RAILS_ENV') == 'production'

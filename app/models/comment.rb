@@ -1,6 +1,8 @@
-class Comment < ApplicationRecord
-    validates :body, presence: true, length: { maximum: 65_535 }
+# frozen_string_literal: true
 
-    belongs_to :user
-    belongs_to :post
+class Comment < ApplicationRecord
+  validates :body, presence: true, length: { maximum: 65_535 }
+
+  belongs_to :user
+  belongs_to :post
 end

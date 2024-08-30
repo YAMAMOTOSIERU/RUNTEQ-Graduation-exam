@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class MessagesController < ApplicationController
   before_action :set_room
 
@@ -5,12 +7,8 @@ class MessagesController < ApplicationController
     @message = @room.messages.build(message_params)
     @message.user = current_user
 
-    if @message.save
-      redirect_to room_path(@room)
-    else
-      flash[:alert] = "メッセージの送信に失敗しました: #{@message.errors.full_messages.join(', ')}"
-      redirect_to room_path(@room)
-    end
+    flash[:alert] = "メッセージの送信に失敗しました: #{@message.errors.full_messages.join(', ')}" unless @message.save
+    redirect_to room_path(@room)
   end
 
   private
