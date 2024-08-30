@@ -81,8 +81,11 @@ group :development, :test do
   gem 'rspec_junit_formatter'
   gem 'rspec-rails'
   gem 'rubocop'
+  gem 'rubocop-capybara', require: false
   gem 'rubocop-checkstyle_formatter'
+  gem 'rubocop-factory_bot', require: false
   gem 'rubocop-rails'
+  gem 'rubocop-rspec', require: false
   gem 'sqlite3'
 end
 
