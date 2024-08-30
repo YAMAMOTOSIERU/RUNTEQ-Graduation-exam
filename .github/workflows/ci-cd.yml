@@ -9,39 +9,40 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:13
+        env:
+          POSTGRES_PASSWORD: postgres
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
     steps:
       - uses: actions/checkout@v2
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: 3.3.0
+          bundler-cache: true
       - name: Install dependencies
         run: |
           gem install bundler
           bundle install --jobs 4 --retry 3
       - name: Setup database
+        env:
+          RAILS_ENV: test
+          POSTGRES_HOST: localhost
+          POSTGRES_PORT: 5432
         run: |
           bundle exec rails db:create
           bundle exec rails db:schema:load
       - name: Compile assets
         run: bundle exec rails assets:precompile
-
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: Set up Ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: 3.3.0
-      - name: Install dependencies
-        run: |
-          gem install bundler
-          bundle install --jobs 4 --retry 3
-      - name: Setup database
-        run: |
-          bundle exec rails db:create
-          bundle exec rails db:schema:load
       - name: Run tests
         run: bundle exec rspec
       - name: Run linters
@@ -50,7 +51,7 @@ jobs:
           bundle exec erb-lint .
 
   deploy:
-    needs: [build, test]
+    needs: [build]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
