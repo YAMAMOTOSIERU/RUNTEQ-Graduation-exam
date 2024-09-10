@@ -12,7 +12,7 @@ ja:
         password_confirmation: パスワード確認
       post:
         title: タイトル
-        body: 本文
+        body: メニュー内容
         weight: 体重
         tag: タグ
         number: 今日の体重

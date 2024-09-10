@@ -21,9 +21,9 @@ ja:
   header:
     login: ログイン
     logout: ログアウト
-    post: 掲示板
-    post_index: 掲示板一覧
-    create_post: 掲示板作成
+    post: 日記
+    post_index: 日記一覧
+    create_post: 日記作成
     bookmark_index: いいね一覧
     profile: プロフィール
   user_sessions:
@@ -31,7 +31,6 @@ ja:
       title: ログイン
       login: ログイン
       to_register_page: 登録ページ
-      password_forget: パスワードをお忘れの方はこちら
     create:
       success: ログインしました
       failure: ログインに失敗しました
@@ -66,4 +65,9 @@ ja:
       short: "%Y-%m-%d %H:%M"
   profiles:
     show:
-      title: 日記一覧
+      title: プロフィール
+  rooms:
+    show:
+      title: チャットルーム
+    chat_index:
+      title: チャットルーム

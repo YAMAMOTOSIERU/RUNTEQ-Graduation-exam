@@ -6,7 +6,7 @@
         <% if @posts.present? %>
           <%= render @posts %>
         <% else %>
-          <div class="mb-3">掲示板がありません</div>
+          <div class="mb-3">日記がありません</div>
         <% end %>
       </div>
       <%= paginate @posts, theme: 'bootstrap-5' %>

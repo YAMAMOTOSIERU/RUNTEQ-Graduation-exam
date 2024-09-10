@@ -45,13 +45,36 @@ jobs:
         run: bundle exec rails assets:precompile
       - name: Run tests
         run: bundle exec rspec
-      - name: Run linters
+      - name: Run RuboCop
+        continue-on-error: true
         run: |
-          bundle exec rubocop
-          bundle exec erb-lint .
+          bundle exec rubocop -a
+          bundle exec rubocop --fail-level fatal
+      - name: Run ERB Lint
+        continue-on-error: true
+        run: bundle exec erb-lint .
+
+  lint_check:
+    needs: [build]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.3.0
+          bundler-cache: true
+      - name: Install dependencies
+        run: |
+          gem install bundler
+          bundle install --jobs 4 --retry 3
+      - name: Check RuboCop results
+        run: bundle exec rubocop --fail-level fatal
+      - name: Check ERB Lint results
+        run: bundle exec erb-lint .
 
   deploy:
-    needs: [build]
+    needs: [build, lint_check]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -61,8 +84,3 @@ jobs:
           heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
           heroku_app_name: "rails-create-ymr"
           heroku_email: "sieru0710@icloud.com"
-
-  continue-on-error: true
-  run: |
-    bundle exec rubcop
-    bundle exec erb-lint .
