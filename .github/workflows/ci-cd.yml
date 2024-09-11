@@ -52,7 +52,7 @@ jobs:
           bundle exec rubocop --fail-level fatal
       - name: Run ERB Lint
         continue-on-error: true
-        run: bundle exec erb-lint .
+        run: bundle exec erblint .
 
   lint_check:
     needs: [build]
@@ -71,7 +71,7 @@ jobs:
       - name: Check RuboCop results
         run: bundle exec rubocop --fail-level fatal
       - name: Check ERB Lint results
-        run: bundle exec erb-lint .
+        run: bundle exec erblint .
 
   deploy:
     needs: [build, lint_check]

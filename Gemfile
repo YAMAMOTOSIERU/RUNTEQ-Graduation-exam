@@ -52,6 +52,8 @@ gem 'sassc'
 
 gem 'actioncable', '~> 7.1'
 
+gem 'erb_lint', require: false
+
 # Use Redis adapter to run Action Cable in production
 gem 'redis'
 
