@@ -64,7 +64,7 @@ jobs:
         with:
           ruby-version: 3.3.0
           bundler-cache: true
-          cache-version: 2 # キャッシュをクリアするためにインクリメント
+          cache-version: 3 # キャッシュをクリアするためにインクリメント
       - name: Install dependencies
         run: |
           gem install bundler
@@ -73,7 +73,8 @@ jobs:
         run: |
           ruby --version
           bundle --version
-          bundle list
+          bundle info --path
+          bundle info erb_lint
           which erblint
       - name: Check RuboCop results
         run: bundle exec rubocop --fail-level fatal
