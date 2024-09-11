@@ -54,6 +54,8 @@ gem 'actioncable', '~> 7.1'
 
 gem 'erb_lint', require: false
 
+gem 'parser', '~> 3.3.0'
+
 # Use Redis adapter to run Action Cable in production
 gem 'redis'
 

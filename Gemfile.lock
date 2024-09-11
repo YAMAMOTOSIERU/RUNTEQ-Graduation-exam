@@ -433,6 +433,7 @@ DEPENDENCIES
   jsbundling-rails
   kaminari
   nkf
+  parser (~> 3.3.0)
   pg
   pry-byebug
   puma (>= 5.0)

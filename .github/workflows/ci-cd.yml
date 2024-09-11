@@ -33,6 +33,10 @@ jobs:
         run: |
           gem install bundler
           bundle install --jobs 4 --retry 3
+      - name: Update parser gem
+        run: |
+          bundle update parser
+          bundle install
       - name: Setup database
         env:
           RAILS_ENV: test
@@ -52,7 +56,7 @@ jobs:
           bundle exec rubocop --fail-level fatal
       - name: Run ERB Lint
         continue-on-error: true
-        run: bundle exec erblint .
+        run: bundle exec erblint --lint-all .
 
   lint_check:
     needs: [build]
@@ -64,11 +68,15 @@ jobs:
         with:
           ruby-version: 3.3.0
           bundler-cache: true
-          cache-version: 3 # キャッシュをクリアするためにインクリメント
+          cache-version: 4 # キャッシュバージョンをインクリメント
       - name: Install dependencies
         run: |
           gem install bundler
           bundle install --jobs 4 --retry 3
+      - name: Update parser gem
+        run: |
+          bundle update parser
+          bundle install
       - name: Debug information
         run: |
           ruby --version
@@ -81,7 +89,9 @@ jobs:
       - name: Check RuboCop results
         run: bundle exec rubocop --fail-level fatal
       - name: Check ERB Lint results
-        run: bundle exec erblint .
+        run: |
+          bundle exec erblint --lint-all --format compact .
+          bundle exec erblint --lint-all --format json .
 
   deploy:
     needs: [build, lint_check]
