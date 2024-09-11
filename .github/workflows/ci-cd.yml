@@ -73,9 +73,11 @@ jobs:
         run: |
           ruby --version
           bundle --version
-          bundle info --gemfile
+          bundle config list
           bundle exec erblint --version
           which erblint
+          ls -l $(which erblint)
+          gem list | grep erb_lint
       - name: Check RuboCop results
         run: bundle exec rubocop --fail-level fatal
       - name: Check ERB Lint results
