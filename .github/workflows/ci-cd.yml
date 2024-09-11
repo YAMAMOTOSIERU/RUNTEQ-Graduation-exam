@@ -24,14 +24,12 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - name: Update Bundler
-        run: gem update bundler
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
-        ruby-version: 3.3.0
-        bundler-cache: true
-        bundler-version: latest
+          ruby-version: 3.3.0
+          bundler-cache: true
+          bundler-version: latest
       - name: Install dependencies
         run: |
           bundle install --jobs 4 --retry 3
