@@ -24,6 +24,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+      - name: Update Bundler
+        run: gem update bundler
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
@@ -31,11 +33,10 @@ jobs:
           bundler-cache: true
       - name: Install dependencies
         run: |
-          gem install bundler
           bundle install --jobs 4 --retry 3
       - name: Update parser gem
         run: |
-          bundle update parser
+          bundle update --conservative parser
           bundle install
       - name: Setup database
         env:
@@ -55,6 +56,8 @@ jobs:
           bundle exec rubocop -a
           bundle exec rubocop --fail-level fatal
       - name: Run ERB Lint
+        env:
+          RUBYOPT: -W0
         continue-on-error: true
         run: bundle exec erblint --lint-all .
 
@@ -63,19 +66,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - name: Update Bundler
+        run: gem update bundler
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: 3.3.0
           bundler-cache: true
-          cache-version: 4 # キャッシュバージョンをインクリメント
+          cache-version: 4
       - name: Install dependencies
         run: |
-          gem install bundler
           bundle install --jobs 4 --retry 3
       - name: Update parser gem
         run: |
-          bundle update parser
+          bundle update --conservative parser
           bundle install
       - name: Debug information
         run: |
@@ -89,6 +93,8 @@ jobs:
       - name: Check RuboCop results
         run: bundle exec rubocop --fail-level fatal
       - name: Check ERB Lint results
+        env:
+          RUBYOPT: -W0
         run: |
           bundle exec erblint --lint-all --format compact .
           bundle exec erblint --lint-all --format json .
