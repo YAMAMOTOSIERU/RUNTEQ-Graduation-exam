@@ -65,13 +65,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Update Bundler
-        run: gem update bundler
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: 3.3.0
           bundler-cache: true
+          bundler-version: latest
           cache-version: 4
       - name: Install dependencies
         run: |
