@@ -52,7 +52,7 @@ gem 'sassc'
 
 gem 'actioncable', '~> 7.1'
 
-gem 'erb_lint', require: false
+gem 'erb_lint', '~> 0.6.0', require: false
 
 gem 'parser', '~> 3.3.0.2'
 
