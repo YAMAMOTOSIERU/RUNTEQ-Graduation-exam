@@ -80,26 +80,32 @@ jobs:
         run: |
           bundle update --conservative parser
           bundle install
+      - name: Check file permissions
+        run: |
+          ls -l .erb-lint.yml
+          ls -l .rubocop.yml
       - name: Debug information
         run: |
           ruby --version
           bundle --version
           bundle config list
           bundle exec erblint --version
+          bundle exec erblint --help
           bundle info erb_lint
           bundle info parser
           cat .erb-lint.yml || echo ".erb-lint.yml not found"
           which erblint
           ls -l $(which erblint)
           gem list | grep erb_lint
+          bundle exec rubocop --version
       - name: Check RuboCop results
         run: bundle exec rubocop --fail-level fatal
       - name: Check ERB Lint results
         env:
           RUBYOPT: -W0
         run: |
-          bundle exec erblint --lint-all --format compact . || true
-          bundle exec erblint --lint-all --format json . || true
+          bundle exec erblint --lint-all --format compact . || echo "ERB Lint failed with compact format"
+          bundle exec erblint --lint-all --format json . || echo "ERB Lint failed with JSON format"
         continue-on-error: true
 
   deploy:
