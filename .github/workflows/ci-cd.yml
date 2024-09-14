@@ -84,6 +84,9 @@ jobs:
         run: |
           ls -l .erb-lint.yml
           ls -l .rubocop.yml
+      - name: List ERB files
+        run: |
+          find . -name "*.erb" -type f
       - name: Debug information
         run: |
           ruby --version
@@ -104,8 +107,8 @@ jobs:
         env:
           RUBYOPT: -W0
         run: |
-          bundle exec erblint --lint-all --format compact . || echo "ERB Lint failed with compact format"
-          bundle exec erblint --lint-all --format json . || echo "ERB Lint failed with JSON format"
+          bundle exec erblint --lint-all --format compact . || (echo "ERB Lint failed with compact format" && exit 1)
+          bundle exec erblint --lint-all --format json . || (echo "ERB Lint failed with JSON format" && exit 1)
         continue-on-error: true
 
   deploy:
