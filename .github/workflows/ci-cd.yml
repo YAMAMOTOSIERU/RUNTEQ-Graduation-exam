@@ -106,9 +106,8 @@ jobs:
       - name: Check ERB Lint results
         env:
           RUBYOPT: -W0
-        run: |
-          bundle exec erblint --lint-all --format compact . || (echo "ERB Lint failed with compact format" && exit 1)
-          bundle exec erblint --lint-all --format json . || (echo "ERB Lint failed with JSON format" && exit 1)
+            bundle exec erblint --lint-all --format compact . || (echo "ERB Lint failed with compact format" && cat tmp/erblint_output.txt && exit 1)
+            bundle exec erblint --lint-all --format json . || (echo "ERB Lint failed with JSON format" && cat tmp/erblint_output.json && exit 1)
         continue-on-error: true
 
   deploy:

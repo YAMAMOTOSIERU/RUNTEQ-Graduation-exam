@@ -11,19 +11,19 @@
       <div class='collapse navbar-collapse' id='navbarSupportedContent'>
         <ul class='navbar-nav ms-auto main-nav align-items-center'>
           <li class='nav-item'>
-            <%= link_to '日記作成', new_post_path, class: 'nav-link' %>
+            <%= link_to '日記作成', new_post_path, class: 'nav-link', data: { turbo_frame: '_top' } %>
           </li>
 
           <li class='nav-item'>
-            <%= link_to 'いいね一覧', bookmarks_posts_path, class: 'nav-link' %>
+            <%= link_to 'いいね一覧', bookmarks_posts_path, class: 'nav-link', data: { turbo_frame: '_top' } %>
           </li>
 
           <li class='nav-item'>
-          <%= link_to "チャットルーム", chat_index_path, class: 'nav-link' %>
+            <%= link_to "チャットルーム", chat_index_path, class: 'nav-link', data: { turbo_frame: '_top' } %>
           </li>
 
           <li class='nav-item'>
-            <%= link_to '#', class: 'nav-link', data: { bs_toggle: 'dropdown' }, aria: { haspopup: 'true', expanded: 'false' }, id: 'header-profile' do %>
+            <%= link_to '#', class: 'nav-link', data: { bs_toggle: 'dropdown', turbo: 'false' }, aria: { haspopup: 'true', expanded: 'false' }, id: 'header-profile' do %>
               <div>プロフィール</div>
             <% end %>
             <div class='dropdown-menu dropdown-menu-end'>
